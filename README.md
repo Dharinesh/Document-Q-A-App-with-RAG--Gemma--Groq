@@ -17,3 +17,4 @@ Gemma-1.1-7b-it is a lightweight, decoder-only large language model (LLM) traine
 
 ## Groq
 
+Groq is used as a language model provider through the langchain_groq library, which is a wrapper around the Groq API. The langchain_groq library allows the application to communicate with the Groq API and leverage its language model capabilities. We are mainly using Groq to make api calls to the groq platform which connects to the llm to respond to the prompts
