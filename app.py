@@ -18,10 +18,12 @@ load_dotenv()
 groq_api_key = os.getenv('GROQ_API_KEY')
 os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
-st.title("Gemma Model Document Q&A")
+st.title("Document Q&A")
 
 # Initialize Groq language model
-llm = ChatGroq(groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
+llm = ChatGroq(groq_api_key=groq_api_key, model_name="gemma-7b-it") #change to the needed model
+
+model_name = "gemma-7b-it"
 
 # Define prompt template
 prompt = ChatPromptTemplate.from_template(
@@ -69,3 +71,5 @@ if st.button("Answer"):
             for i, doc in enumerate(response["context"]):
                 st.write(doc.page_content)
                 st.write("--------------------------------")
+                
+st.markdown(f"**Model used: {model_name}**")
